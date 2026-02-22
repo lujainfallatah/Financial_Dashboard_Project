@@ -73,10 +73,10 @@ Full SQL file: `sama_SQL_analytics.sql`
 ## UI/UX Design (Figma)
 
 ### Overview Page
-![Figma Overview](Design_files/dashboard_overview_UI.png)
+![Figma Overview]("Design files"/dashboard_overview_UI.png)
 
 ### Detailed Analysis Page
-![Figma Detailed](Design_files/dashboard_detailed_analysis_UI.png)
+![Figma Detailed]("Design files"/dashboard_detailed_analysis_UI.png)
 
 ---
 

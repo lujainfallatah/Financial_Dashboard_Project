@@ -2,7 +2,7 @@
 
 An interactive dashboard analyzing Saudi Arabia's investment fund sector from 1998 to 2025, built using data from the Saudi Central Bank (SAMA).
 
-**Live Dashboard:** [Click here](https://financial-dashboard-project-vey6dsvue9vnprsrshfsms.streamlit.app/)
+**Live Dashboard:** [Click here](https://financialdashboardproject-n6fnwshatay2eq2p9kze8z.streamlit.app/)
 
 ---
 
@@ -73,10 +73,10 @@ Full SQL file: `sama_SQL_analytics.sql`
 ## UI/UX Design (Figma)
 
 ### Overview Page
-![Figma Overview]("Design files"/dashboard_overview_UI.png)
+![Dashboard Overview](Design%20files/dashboard_overview_UI.png)
 
 ### Detailed Analysis Page
-![Figma Detailed]("Design files"/dashboard_detailed_analysis_UI.png)
+![Detailed Analysis](Design%20files/dashboard_detailed_analysis_UI.png)
 
 ---
 
@@ -92,8 +92,7 @@ Full SQL file: `sama_SQL_analytics.sql`
 
 ## Live Dashboard
 
-🔗 [https://financial-dashboard-project-vey6dsvue9vnprsrshfsms.streamlit.app/](https://financial-dashboard-project-vey6dsvue9vnprsrshfsms.streamlit.app/)
-
+🔗 [Live Demo](https://financialdashboardproject-n6fnwshatay2eq2p9kze8z.streamlit.app/)
 ---
 
 ## Assumptions & Limitations

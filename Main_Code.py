@@ -101,7 +101,7 @@ def get_logo():
 st.markdown(f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap');
-html, body, [class*="css"] {{ font-family: 'IBM Plex Sans Arabic', sans-serif; direction: rtl; background: #F4F7F5; }}
+html, body, [class*="css"] {{ font-family: 'IBM Plex Sans Arabic', sans-serif; direction: rtl; background: #0B0F14; }}
 div.block-container {{ padding-top: 1rem !important; padding-bottom: 1rem !important; }}
 .stMarkdown, .stText, p, div {{ text-align: right !important; }}
 [data-testid="column"] {{ direction: rtl !important; }}

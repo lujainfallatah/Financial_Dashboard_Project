@@ -108,11 +108,7 @@ div[class*="main"] {{
     background-color: #0B0F14 !important;
     background: #0B0F14 !important;
 }}
-:root, [data-theme="light"], [data-theme="dark"] {{
-    --background-color: #0B0F14 !important;
-    color-scheme: dark !important;
-}}
-html, body, [class*="css"] {{ font-family: 'IBM Plex Sans Arabic', sans-serif; direction: rtl; background: #0B0F14 !important; background-color: #0B0F14 !important; color: #E8F0E9; }}
+html, body, [class*="css"] {{ font-family: 'IBM Plex Sans Arabic', sans-serif; direction: rtl; background: #0B0F14 !important; background-color: #0B0F14 !important; }}
 div.block-container {{ padding-top: 1rem !important; padding-bottom: 1rem !important; }}
 .stMarkdown, .stText, p, div {{ text-align: right !important; }}
 [data-testid="column"] {{ direction: rtl !important; }}
@@ -122,16 +118,16 @@ div.block-container {{ padding-top: 1rem !important; padding-bottom: 1rem !impor
 .hero-badge {{ display: inline-block; background: {LIGHT_GREEN}; color: {GREEN}; font-weight: 700; font-size: .68rem; padding: .15rem .6rem; border-radius: 100px; margin-bottom: .3rem; }}
 .hero-title {{ font-size: 1.4rem; font-weight: 700; margin: 0; }}
 .hero-sub   {{ font-size: .82rem; opacity: .8; margin: 0; }}
-.card {{ background: #161C22; border-radius: 10px; padding: .9rem 1.1rem; border-top: 3px solid {MID_GREEN}; box-shadow: 0 2px 8px rgba(0,0,0,.3); }}
-.card-label {{ font-size: .72rem; color: #8A9E8D; font-weight: 600; margin-bottom: .2rem; }}
-.card-value {{ font-size: 1.6rem; font-weight: 700; color: #E8F0E9; font-family: 'IBM Plex Mono', monospace; }}
-.card-unit  {{ font-size: .72rem; color: #8A9E8D; margin-top: .2rem; }}
+.card {{ background: white; border-radius: 10px; padding: .9rem 1.1rem; border-top: 3px solid {MID_GREEN}; box-shadow: 0 2px 8px rgba(27,67,50,.07); }}
+.card-label {{ font-size: .72rem; color: #6B7A6E; font-weight: 600; margin-bottom: .2rem; }}
+.card-value {{ font-size: 1.6rem; font-weight: 700; color: #0A1F14; font-family: 'IBM Plex Mono', monospace; }}
+.card-unit  {{ font-size: .72rem; color: #6B7A6E; margin-top: .2rem; }}
 .up   {{ color: {MID_GREEN}; font-weight: 600; font-size: .78rem; }}
 .down {{ color: {RED}; font-weight: 600; font-size: .78rem; }}
 .chart-title {{ font-size: .95rem; font-weight: 700; color: #FFFFFF; margin: .6rem 0 .1rem 0; padding-right: .6rem; border-right: 3px solid {LIGHT_GREEN}; }}
-.sql {{ font-family: 'IBM Plex Mono', monospace; font-size: .65rem; color: {MID_GREEN}; background: #1A2A20; border: 1px solid {LIGHT_GREEN}; border-radius: 5px; padding: .1rem .5rem; display: inline-block; margin-bottom: .3rem; direction: ltr; }}
-.insights {{ background: linear-gradient(135deg, #0F2018, #142A1E); border: 1px solid {LIGHT_GREEN}; border-radius: 10px; padding: .8rem 1.2rem; }}
-.insights p {{ margin: .25rem 0; color: {LIGHT_GREEN}; font-size: .82rem; border-right: 3px solid {LIGHT_GREEN}; padding-right: .7rem; }}
+.sql {{ font-family: 'IBM Plex Mono', monospace; font-size: .65rem; color: {MID_GREEN}; background: #EBF5EF; border: 1px solid {LIGHT_GREEN}; border-radius: 5px; padding: .1rem .5rem; display: inline-block; margin-bottom: .3rem; direction: ltr; }}
+.insights {{ background: linear-gradient(135deg, #EBF5EF, #F4FAF6); border: 1px solid {LIGHT_GREEN}; border-radius: 10px; padding: .8rem 1.2rem; }}
+.insights p {{ margin: .25rem 0; color: {GREEN}; font-size: .82rem; border-right: 3px solid {LIGHT_GREEN}; padding-right: .7rem; }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -183,8 +179,8 @@ for col, label, val, old, unit, big in [
 
 st.markdown("<div style='margin-top:.5rem'></div>", unsafe_allow_html=True)
 
-L = dict(margin=dict(t=20,b=25,l=45,r=10), paper_bgcolor="#0B0F14", plot_bgcolor="#0B0F14",
-         font=dict(family="IBM Plex Sans Arabic", color="#E8F0E9"), hovermode="x unified", legend=dict(orientation="h", y=1.1, font=dict(size=11, color="#E8F0E9")))
+L = dict(margin=dict(t=20,b=25,l=45,r=10), paper_bgcolor="white", plot_bgcolor="white",
+         font=dict(family="IBM Plex Sans Arabic"), hovermode="x unified", legend=dict(orientation="h", y=1.1, font=dict(size=11, color="#333")))
 
 
 r1, r2 = st.columns([3, 2])
@@ -195,8 +191,8 @@ with r1:
     fig.add_trace(go.Scatter(x=df_trend["period"], y=df_trend["grand_total_assets"],
         fill="tozeroy", line=dict(color=MID_GREEN, width=2), fillcolor="rgba(64,145,108,0.15)",
         hovertemplate="<b>%{x|%Y}</b><br>%{y:,.0f} م.ر<extra></extra>"))
-    fig.update_layout(**L, height=240, xaxis=dict(showgrid=False, title="", tickfont=dict(size=9, color='#8A9E8D')),
-        yaxis=dict(showgrid=True, gridcolor="#2A3A2D", title="مليون ريال", tickfont=dict(size=9, color="#8A9E8D"), title_font=dict(size=9, color="#8A9E8D")))
+    fig.update_layout(**L, height=240, xaxis=dict(showgrid=False, title="", tickfont=dict(size=9, color='#333')),
+        yaxis=dict(showgrid=True, gridcolor="#F0F0F0", title="مليون ريال", tickfont=dict(size=9, color="#333"), title_font=dict(size=9, color="#333")))
     st.plotly_chart(fig, use_container_width=True)
 
 with r2:
@@ -225,8 +221,8 @@ with r3:
     fig.add_trace(go.Scatter(x=df_trend["period"], y=df_trend["foreign_assets_total"],
         name="أجنبي", stackgroup="one", line=dict(width=0), fillcolor="rgba(116,198,157,0.7)",
         hovertemplate="%{y:,.0f}<extra>أجنبي</extra>"))
-    fig.update_layout(**L, height=240, xaxis=dict(showgrid=False, title="", tickfont=dict(size=9, color='#8A9E8D')),
-        yaxis=dict(showgrid=True, gridcolor="#2A3A2D", title="مليون ريال", tickfont=dict(size=9, color="#8A9E8D"), title_font=dict(size=9, color="#8A9E8D")))
+    fig.update_layout(**L, height=240, xaxis=dict(showgrid=False, title="", tickfont=dict(size=9, color='#333')),
+        yaxis=dict(showgrid=True, gridcolor="#F0F0F0", title="مليون ريال", tickfont=dict(size=9, color="#333"), title_font=dict(size=9, color="#333")))
     st.plotly_chart(fig, use_container_width=True)
 
 with r4:
@@ -235,8 +231,8 @@ with r4:
     fig = go.Figure(go.Bar(x=df_yoy["year"], y=df_yoy["yoy_pct"], marker_color=colors,
         hovertemplate="<b>%{x:.0f}</b><br>%{y:.1f}%<extra></extra>"))
     fig.update_layout(**{**L, "hovermode":"closest"}, height=240,
-        xaxis=dict(showgrid=False, title="", dtick=4, tickfont=dict(size=9, color='#8A9E8D')),
-        yaxis=dict(showgrid=True, gridcolor="#2A3A2D", title="%", zeroline=True, zerolinecolor="#2A3A2D", tickfont=dict(size=9, color="#8A9E8D"), title_font=dict(size=9, color="#8A9E8D")))
+        xaxis=dict(showgrid=False, title="", dtick=4, tickfont=dict(size=9, color='#333')),
+        yaxis=dict(showgrid=True, gridcolor="#F0F0F0", title="%", zeroline=True, zerolinecolor="#ccc", tickfont=dict(size=9, color="#333"), title_font=dict(size=9, color="#333")))
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -251,9 +247,9 @@ with r5:
     fig.add_trace(go.Scatter(x=df_funds["period"], y=df_funds["active_funds_count"],
         name="صناديق", yaxis="y2", line=dict(color=GOLD, width=2),
         hovertemplate="%{y:.0f}<extra>صندوق</extra>"))
-    fig.update_layout(**L, height=240, xaxis=dict(showgrid=False, title="", tickfont=dict(size=9, color='#8A9E8D')),
-        yaxis=dict(showgrid=True, gridcolor="#2A3A2D", title="المشتركين", title_font=dict(size=9, color='#8A9E8D'), tickfont=dict(size=8, color='#8A9E8D')),
-        yaxis2=dict(overlaying="y", side="right", title="الصناديق", showgrid=False, title_font=dict(size=9, color='#8A9E8D'), tickfont=dict(size=8, color='#8A9E8D')))
+    fig.update_layout(**L, height=240, xaxis=dict(showgrid=False, title="", tickfont=dict(size=9, color='#333')),
+        yaxis=dict(showgrid=True, gridcolor="#F0F0F0", title="المشتركين", title_font=dict(size=9, color='#4A5568'), tickfont=dict(size=8, color='#4A5568')),
+        yaxis2=dict(overlaying="y", side="right", title="الصناديق", showgrid=False, title_font=dict(size=9, color='#4A5568'), tickfont=dict(size=8, color='#4A5568')))
     st.plotly_chart(fig, use_container_width=True)
 
 with r6:
@@ -264,8 +260,8 @@ with r6:
     fig.add_trace(go.Bar(x=df_shares["year"], y=df_shares["foreign_pct"], name="أجنبي %",
         marker_color=LIGHT_GREEN, hovertemplate="<b>%{x:.0f}</b><br>%{y:.1f}%<extra>أجنبي</extra>"))
     fig.update_layout(**{**L, "hovermode":"closest"}, barmode="stack", height=240,
-        xaxis=dict(showgrid=False, title="", dtick=4, tickfont=dict(size=9, color='#8A9E8D')),
-        yaxis=dict(showgrid=True, gridcolor="#2A3A2D", title="%", range=[0,100], tickfont=dict(size=9, color="#8A9E8D"), title_font=dict(size=9, color="#8A9E8D")))
+        xaxis=dict(showgrid=False, title="", dtick=4, tickfont=dict(size=9, color='#333')),
+        yaxis=dict(showgrid=True, gridcolor="#F0F0F0", title="%", range=[0,100], tickfont=dict(size=9, color="#333"), title_font=dict(size=9, color="#333")))
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -289,7 +285,7 @@ except Exception as e:
     st.warning(f"خطأ في الاستنتاجات: {e}")
 
 st.markdown("""
-<div style="text-align:right; color:#bbb; font-size:.75rem; margin-top:.5rem; padding:.5rem 0; border-top:1px solid #1A2A20;">
+<div style="text-align:right; color:#bbb; font-size:.75rem; margin-top:.5rem; padding:.5rem 0; border-top:1px solid #eee;">
   البيانات من البنك المركزي السعودي (ساما) · متصل بـ Supabase
 </div>
 """, unsafe_allow_html=True)
